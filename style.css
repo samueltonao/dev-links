@@ -1,0 +1,192 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*dessa forma retira-se todas as medidas padrões do navegador, deixando mais limpo para se trabalhar no projeto*/
+}
+:root {
+  --text-color:white;
+  --bg-url: url(./assets/assets/bg-mobile.jpg);
+  --stroke-color:rgba(255, 255, 255, 0.05); 
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surfarece-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/assets/moon-stars.svg);
+}
+.light{
+  --text-color:black;
+  --bg-url: url(./assets/assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surfarece-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/assets/sun.svg);
+
+}
+body{
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+
+       o codigo acima pode ser resumido, é chamado de short hand, ou 'atalho', pois junta todas as linhas de codigos em somente uma.
+   */
+  /*background: color image repeat position/size*/
+   background: var(--bg-url) no-repeat top center/cover;
+}
+
+      body *{
+       font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+             /*asterisco é o seletor universal, ou seja, ele vai aplicar para todos os elemenstos dentro do body*/
+    }
+
+#container{
+  width: 360px;
+            /*margin-left: auto;
+                margin-right: auto; o margin auto pode substituir essas duas prpriedades, assim alinhando de forma mais facil*/
+  margin: auto;
+             /*o margin auto nao preenche a borda de cima ou de baixo, isso so é possivel com o comando widght. além disso o marigin: auto; pode ser aplicado de diferentes formas, como por exemplo o margin-top: auto;*/
+                /*a tag margin a cima pode ser substituida dessa forma:*/
+  margin: 56px auto 0px;
+               /*assim, funcionará como um relógio girando, sendo aplicado a medida de 56px nas laterais e em cima, e a de zero sendo adicionada em baixo.*/
+  padding: 0 24px;
+}
+
+
+/*profile*/
+#profile img {
+  width: 112px;
+ }
+ #profile{
+   text-align: center;
+             /*esse comando se aplica na regra inline, ou seja, o elemento vai ser centralizado sem o margin: auto;*/
+   padding: 24px;
+            /*para adicionar os espaçãmentos dentro da caixa*/
+ }
+     /*a{
+       display: block;
+         }
+             o a, agora, vai passar a ocupar a linha toda, isso porque o seu display por padrao foi bloqueado, eles nao ficarao mais em linha*/
+                   /*existem elementos block e elementos in line, div é um elemento block, e img é um elemento in line. em elementos in line nao se pode aplicar o margin: auto;*/
+                      /*para se aplicar o margin: auto;, devese primeiro aplicar o display: block;*/
+  #profle p{
+    font-weight: 500;
+    /*é o peso da fonte, ou o negrito.*/
+    font-size: 16px;
+    /*por padrao, os navegadores ja posseum o font-size de 16px, entao não é necessário colocar.*/
+    line-height: 24px;
+    /*é a altura da linha*/
+    margin-top: 8px;
+    /*distanciar da linha*/
+  }
+
+  #switch{
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+  }
+
+    /*switch*/
+   #switch button{
+    width: 32px;
+    height: 32px;
+    background: #ffffff var(--switch-bg-url) no-repeat center;
+    border: 0px;
+    border-radius: 50%;
+    top: 50%;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+   }
+
+   .light #switch button{
+    right: 0;
+    left: initial;
+   } 
+
+   #switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+   }
+   
+
+
+
+  /*links*/
+   ul{
+     list-style: none;
+     /*vai tirar os pontos da lista, ou qualquer outro estilo.*/
+
+     display: flex;
+     /*essa opção deixa os elemntos ul dentro da caixa, vai fazer com que os elementos presentes fiquem um do lado do outro de forma frexivel*/
+     flex-direction: column;
+     gap: 16px;
+     /*o gap vai colocar espaçamento entre os elementos*/
+     padding: 24px 0;
+
+   }
+  ul li a {
+  display: flex;
+    /*justify-content: center;
+    com esse comando, o texto nao fica centralizado no meio da caixa, porem com o comando a seguir, ele segue uma especie de linha imaginaria, centralizando ele.*/
+    align-items: center;
+  justify-content: center;
+    /*dessa forma, o conteudo fica no meio da caixa*/
+
+    padding: 16px 24px;
+
+    background: var(--surface-color);
+          border: 1px solid var(--stroke-color);
+           border-radius: 8px; 
+           /*configurações das bordas das caixas*/ 
+           /*border-radius serviu para arredondar a borda da caixa*/
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  /*-webkit- é um prefixo utilizado para que o código funcione em alguns browsers*/
+   text-decoration: none;
+   font-weight: 500;
+
+     transition: background 0.3s;
+     /*é o tempo de carregamento do elemento, aqui, por exemplo, está sendo utilizado para dar um efeito mais bonito ao passar o cursor do mouse pelo elemento*/
+  }
+  /*pseudo-selector*/
+  ul li a:hover{
+    background: var(--surfarece-color-hover);
+    border: 1.5px solid var(--text-color);
+  } 
+ /*social links*/
+ #social-links{
+  display: flex;
+   padding: 24px 0;
+    font-size: 24px;
+      justify-content: center;
+ }  
+
+ #social-links a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+ }
+ 
+ #social-links a:hover{
+  background: var(--highlight-color); 
+ }
+ 
+ footer{
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px
+ }
+ 
