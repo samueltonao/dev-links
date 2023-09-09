@@ -44,10 +44,11 @@ body{
 
 #container{
   width: 100%;
+  /*com o width 100%, a imagem ira preencher 100% do dispositivo*/
             /*margin-left: auto;
                 margin-right: auto; o margin auto pode substituir essas duas prpriedades, assim alinhando de forma mais facil*/
   max-width: 588px;
-                
+
   margin: auto;
              /*o margin auto nao preenche a borda de cima ou de baixo, isso so é possivel com o comando widght. além disso o marigin: auto; pode ser aplicado de diferentes formas, como por exemplo o margin-top: auto;*/
                 /*a tag margin a cima pode ser substituida dessa forma:*/
