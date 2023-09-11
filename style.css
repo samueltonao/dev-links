@@ -105,12 +105,17 @@ body{
     left: 0;
     z-index: 1;
     transform: translateY(-50%);
+    animation: movimento-b 0.2s;
    }
 
    .light #switch button{
-    right: 0;
-    left: initial;
+  animation: movimento-a 0.2s forwards;/*com o forwads, as propriedades são mantidas*/
    } 
+
+   #switch button:hover {
+   outline: 8px solid var(--highlight-color);
+   }
+
 
    #switch span{
     display: block;
@@ -202,5 +207,21 @@ body{
   }
   .light{
     --bg-url: url(./assets/assets/bg-desktop-light.jpg);
+  }
+ }
+ @keyframes movimento-a{
+ from {
+ left: 0;
+ }
+ to {
+ left: 50%;
+ }
+ }
+ @keyframes movimento-b{
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
  }
